@@ -7,7 +7,7 @@ import { cx } from "../../utils/cx"
 
 const badgeVariants = tv({
   base: cx(
-    "inline-flex items-center gap-x-1 whitespace-nowrap rounded-sm px-2 py-1 text-xs font-medium ring-1 ring-inset",
+    "inline-flex items-center gap-x-1 whitespace-nowrap rounded-sm px-2 py-1 text-xs font-medium ring-inset",
   ),
   variants: {
     variant: {
