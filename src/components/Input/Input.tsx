@@ -12,7 +12,7 @@ import { hasErrorInput } from "../../utils/hasErrorInput"
 const inputStyles = tv({
   base: [
     // base
-    "relative block w-full appearance-none rounded-md border px-2.5 py-2 shadow-sm outline-none transition sm:text-sm",
+    "relative block w-full appearance-none rounded-sm border px-2.5 py-2 outline-none transition sm:text-sm",
     // border color
     "border-gray-300 dark:border-gray-800",
     // text color
@@ -32,7 +32,10 @@ const inputStyles = tv({
       "file:disabled:bg-gray-100 file:disabled:text-gray-500 file:disabled:dark:bg-gray-800",
     ],
     // focus
-    focusInput,
+    //     "data-[state=open]:ring-1 data-[state=open]:ring-blue-500 data-[state=open]:ring-offset-0 data-[state=open]:border-blue-500 dark:data-[state=open]:ring-offset-gray-950",
+
+    // open
+    "focus:ring-1 focus:ring-blue-500 focus:ring-offset-0 focus:border-blue-500 dark:focus:ring-offset-gray-950",
     // invalid (optional)
     // "aria-[invalid=true]:dark:ring-red-400/20 aria-[invalid=true]:ring-2 aria-[invalid=true]:ring-red-200 aria-[invalid=true]:border-red-500 invalid:ring-2 invalid:ring-red-200 invalid:border-red-500"
     // remove search cancel button (optional)
@@ -40,7 +43,7 @@ const inputStyles = tv({
   ],
   variants: {
     hasError: {
-      true: hasErrorInput,
+      true: "ring-1 ring-red-400 border-red-400",
     },
     // number input
     enableStepper: {

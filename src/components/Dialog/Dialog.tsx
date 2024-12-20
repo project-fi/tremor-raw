@@ -59,7 +59,7 @@ const DialogContent = React.forwardRef<
           ref={forwardedRef}
           className={cx(
             // base
-            "fixed left-1/2 top-1/2 z-50 w-[95vw] max-w-lg -translate-x-1/2 -translate-y-1/2 overflow-y-auto rounded-md border p-6 shadow-lg",
+            "fixed left-1/2 top-1/2 z-50 w-[95vw] max-w-lg -translate-x-1/2 -translate-y-1/2 overflow-y-auto rounded-lg border shadow-lg",
             // border color
             "border-gray-200 dark:border-gray-900",
             // background color
@@ -83,7 +83,7 @@ const DialogHeader = ({
   className,
   ...props
 }: React.HTMLAttributes<HTMLDivElement>) => {
-  return <div className={cx("flex flex-col gap-y-1", className)} {...props} />
+  return <div className={cx("flex flex-col gap-y-0.5 p-6", className)} {...props} />
 }
 
 DialogHeader.displayName = "DialogHeader"
@@ -96,7 +96,7 @@ const DialogTitle = React.forwardRef<
     ref={forwardedRef}
     className={cx(
       // base
-      "text-lg font-semibold",
+      "text-md font-semibold",
       // text color
       "text-gray-900 dark:text-gray-50",
       className,
@@ -114,7 +114,7 @@ const DialogDescription = React.forwardRef<
   return (
     <DialogPrimitives.Description
       ref={forwardedRef}
-      className={cx("text-gray-500 dark:text-gray-500", className)}
+      className={cx("text-sm text-gray-500 dark:text-gray-500", className)}
       {...props}
     />
   )
@@ -129,7 +129,7 @@ const DialogFooter = ({
   return (
     <div
       className={cx(
-        "flex flex-col-reverse sm:flex-row sm:justify-end sm:space-x-2",
+        "flex flex-col-reverse sm:flex-row sm:justify-end sm:space-x-2 p-6 py-4 border-t",
         className,
       )}
       {...props}

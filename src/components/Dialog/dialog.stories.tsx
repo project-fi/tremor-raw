@@ -34,12 +34,19 @@ export const Default: Story = {
           </DialogTrigger>
           <DialogContent className="sm:max-w-lg">
             <DialogHeader>
-              <DialogTitle>Account Created Successfully</DialogTitle>
-              <DialogDescription className="mt-1 text-sm/7">
-                Your account has been created successfully. You can now login to
-                your account. For more information, please contact us.
+              <DialogTitle>Dialog Title</DialogTitle>
+              <DialogDescription>
+                This is a dialog description.
               </DialogDescription>
             </DialogHeader>
+
+            <div className="px-6">
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Quisquam, quos.
+              </p>
+            </div>
+
             <DialogFooter className="mt-6">
               <DialogClose asChild>
                 <Button
@@ -71,12 +78,19 @@ export const Controlled: Story = {
           </DialogTrigger>
           <DialogContent className="sm:max-w-lg">
             <DialogHeader>
-              <DialogTitle>Account Created Successfully</DialogTitle>
-              <DialogDescription className="mt-1 text-sm/7">
-                Your account has been created successfully. You can now login to
-                your account. For more information, please contact us.
+              <DialogTitle>Dialog Title</DialogTitle>
+              <DialogDescription>
+                This is a dialog description.
               </DialogDescription>
             </DialogHeader>
+
+            <div className="px-6">
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Quisquam, quos.
+              </p>
+            </div>
+
             <DialogFooter className="mt-6">
               <DialogClose asChild>
                 <Button

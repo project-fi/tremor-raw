@@ -19,13 +19,31 @@ DropdownMenu.displayName = "DropdownMenu"
 const DropdownMenuTrigger = DropdownMenuPrimitives.Trigger
 DropdownMenuTrigger.displayName = "DropdownMenuTrigger"
 
-const DropdownMenuGroup = DropdownMenuPrimitives.Group
+const DropdownMenuGroup = React.forwardRef<
+  React.ElementRef<typeof DropdownMenuPrimitives.Group>,
+  React.ComponentPropsWithoutRef<typeof DropdownMenuPrimitives.Group>
+>(({ className, ...props }, forwardedRef) => (
+  <DropdownMenuPrimitives.Group
+    ref={forwardedRef}
+    className={cx("space-y-0.5", className)}
+    {...props}
+  />
+))
 DropdownMenuGroup.displayName = "DropdownMenuGroup"
 
 const DropdownMenuSubMenu = DropdownMenuPrimitives.Sub
 DropdownMenuSubMenu.displayName = "DropdownMenuSubMenu"
 
-const DropdownMenuRadioGroup = DropdownMenuPrimitives.RadioGroup
+const DropdownMenuRadioGroup = React.forwardRef<
+  React.ElementRef<typeof DropdownMenuPrimitives.RadioGroup>,
+  React.ComponentPropsWithoutRef<typeof DropdownMenuPrimitives.RadioGroup>
+>(({ className, ...props }, forwardedRef) => (
+  <DropdownMenuPrimitives.RadioGroup
+    ref={forwardedRef}
+    className={cx("space-y-0.5", className)}
+    {...props}
+  />
+))
 DropdownMenuRadioGroup.displayName = "DropdownMenuRadioGroup"
 
 const DropdownMenuSubMenuTrigger = React.forwardRef<
@@ -39,7 +57,7 @@ const DropdownMenuSubMenuTrigger = React.forwardRef<
     ref={forwardedRef}
     className={cx(
       // base
-      "relative flex cursor-default select-none items-center rounded py-1.5 pl-2 pr-1 outline-none transition-colors data-[state=checked]:font-semibold sm:text-sm",
+      "relative flex cursor-default select-none items-center rounded py-2 pl-2.5 pr-1 outline-none transition-colors data-[state=checked]:font-semibold sm:text-sm",
       // text color
       "text-gray-900 dark:text-gray-50",
       // disabled
@@ -69,7 +87,7 @@ const DropdownMenuSubMenuContent = React.forwardRef<
       collisionPadding={collisionPadding}
       className={cx(
         // base
-        "relative z-50 overflow-hidden rounded-md border p-1 shadow-xl shadow-black/[2.5%]",
+        "relative z-50 overflow-hidden rounded-md border p-1 shadow-xl shadow-black/[2.5%] space-y-0.5 p-2",
         // widths
         "min-w-32",
         // heights
@@ -113,7 +131,7 @@ const DropdownMenuContent = React.forwardRef<
         ref={forwardedRef}
         className={cx(
           // base
-          "relative z-50 overflow-hidden rounded-md border p-1 shadow-xl shadow-black/[2.5%]",
+          "relative z-50 overflow-hidden rounded-md border p-1 shadow-xl shadow-black/[2.5%] space-y-0.5 p-2",
           // widths
           "min-w-48",
           // heights
@@ -155,7 +173,7 @@ const DropdownMenuItem = React.forwardRef<
     ref={forwardedRef}
     className={cx(
       // base
-      "group/DropdownMenuItem relative flex cursor-pointer select-none items-center rounded py-1.5 pl-2 pr-1 outline-none transition-colors data-[state=checked]:font-semibold sm:text-sm",
+      "group/DropdownMenuItem relative flex cursor-pointer select-none items-center rounded py-2 pl-2.5 pr-1 outline-none transition-colors data-[state=checked]:font-semibold sm:text-sm",
       // text color
       "text-gray-900 dark:text-gray-50",
       // disabled
@@ -206,7 +224,7 @@ const DropdownMenuCheckboxItem = React.forwardRef<
       ref={forwardedRef}
       className={cx(
         // base
-        "relative flex cursor-pointer select-none items-center gap-x-2 rounded py-1.5 pl-8 pr-1 outline-none transition-colors data-[state=checked]:font-semibold sm:text-sm",
+        "relative flex cursor-pointer select-none items-center gap-x-2 rounded py-2 pl-8 pr-1 outline-none transition-colors data-[state=checked]:bg-blue-500/10 data-[state=checked]:text-blue-900 sm:text-sm",
         // text color
         "text-gray-900 dark:text-gray-50",
         // disabled
@@ -224,7 +242,7 @@ const DropdownMenuCheckboxItem = React.forwardRef<
         <DropdownMenuPrimitives.ItemIndicator>
           <RiCheckLine
             aria-hidden="true"
-            className="size-full shrink-0 text-gray-800 dark:text-gray-200"
+            className="size-full shrink-0 text-blue-700 dark:text-blue-700"
           />
         </DropdownMenuPrimitives.ItemIndicator>
       </span>
@@ -266,7 +284,7 @@ const DropdownMenuRadioItem = React.forwardRef<
     ref={forwardedRef}
     className={cx(
       // base
-      "group/DropdownMenuRadioItem relative flex cursor-pointer select-none items-center gap-x-2 rounded py-1.5 pl-8 pr-1 outline-none transition-colors data-[state=checked]:font-semibold sm:text-sm",
+      "group/DropdownMenuRadioItem relative flex cursor-pointer select-none items-center gap-x-2 rounded py-2 pl-8 pr-1 outline-none transition-colors data-[state=checked]:bg-blue-500/10 data-[state=checked]:text-blue-900 sm:text-sm",
       // text color
       "text-gray-900 dark:text-gray-50",
       // disabled
@@ -334,14 +352,16 @@ const DropdownMenuSeparator = React.forwardRef<
   React.ElementRef<typeof DropdownMenuPrimitives.Separator>,
   React.ComponentPropsWithoutRef<typeof DropdownMenuPrimitives.Separator>
 >(({ className, ...props }, forwardedRef) => (
-  <DropdownMenuPrimitives.Separator
-    ref={forwardedRef}
-    className={cx(
-      "-mx-1 my-1 h-px border-t border-gray-200 dark:border-gray-800",
-      className,
-    )}
-    {...props}
-  />
+  <div className="py-1">
+    <DropdownMenuPrimitives.Separator
+      ref={forwardedRef}
+      className={cx(
+        "-mx-1 my-1 h-px border-t border-gray-200 dark:border-gray-800",
+        className,
+      )}
+      {...props}
+    />
+  </div>
 ))
 DropdownMenuSeparator.displayName = "DropdownMenuSeparator"
 
